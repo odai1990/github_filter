@@ -1,0 +1,15 @@
+// This file to put the basics css for app
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../img/backGround.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
