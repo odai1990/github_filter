@@ -1,7 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import callAPi from "./API/configuration";
+import { useEffect } from "react";
 function App() {
+  useEffect(() => {
+    callAPi({
+      search: "TheAlgorithms/Python",
+      url: "GET /search/repositories",
+    }).then((data) => {
+      console.log("dsfdsfsdfsdf", data.data.items);
+    });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
