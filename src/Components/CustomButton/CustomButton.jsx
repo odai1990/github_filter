@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import CustomButtonStyles from "./CustomButtonStyles.module.scss";
 const CustomButton = ({ name, onClick }) => {
-  return <button className={CustomButtonStyles.container}>{name}</button>;
+  return (
+    <button className={CustomButtonStyles.container} onClick={onClick}>
+      {name}
+    </button>
+  );
 };
 
 CustomButton.propTypes = {

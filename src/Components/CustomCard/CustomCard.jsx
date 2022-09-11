@@ -13,9 +13,7 @@ import CustomCardStyles from "./CustomCardStyles.module.scss";
 import moment from "moment";
 
 // This is the custom card component
-const CustomCard = ({ data, onClick }) => {
-  // console.log("SDfdsfsdfsdf", data);
-
+const CustomCard = ({ data, onDeleteElement, index }) => {
   return (
     <div className={CustomCardStyles.container}>
       <div className={CustomCardStyles.container_upperWhite}>
@@ -30,9 +28,13 @@ const CustomCard = ({ data, onClick }) => {
         src={data?.owner?.avatar_url}
         alt="avatar"
       />
-      <div className={CustomCardStyles.container_name}> {data?.full_name}</div>
       {/* Start Icon */}
       <div className={CustomCardStyles.scrollbar}>
+        <div className={CustomCardStyles.scrollbar_name}>
+          <a target="_blank" rel="noreferrer" href={data?.html_url}>
+            {data?.full_name}
+          </a>
+        </div>
         <div className={CustomCardStyles.container_info}>
           <div className={CustomCardStyles.container_info_image}>
             <img src={Star} alt="Star" />
@@ -83,6 +85,7 @@ const CustomCard = ({ data, onClick }) => {
             <img src={Calender} alt="Calender" />
             <span>Age</span>
           </div>
+          {/* Using moment to change format and get diff  */}
           <span>{moment().diff(moment(data?.updated_at), "years")} years</span>
         </div>
         {/* Last Update it Icon */}
@@ -105,14 +108,15 @@ const CustomCard = ({ data, onClick }) => {
         </div>
         {/* license Icon */}
       </div>
-      <CustomButton name="Remove Repo" onClick={onClick} />
+      <CustomButton name="Remove Repo" onClick={() => onDeleteElement(index)} />
     </div>
   );
 };
 
 CustomCard.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onClick: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+  onDeleteElement: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default CustomCard;

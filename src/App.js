@@ -1,11 +1,10 @@
 import "./Assets/scss/basics.scss";
 import FilterPage from "./Pages/FilterPage/FilterPage";
-import Header from "./Layout/Header";
 
 function App() {
+  // This is the entry point ... calling the page of filtering git
   return (
     <div className="container">
-      <Header />
       <FilterPage />
     </div>
   );

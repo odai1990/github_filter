@@ -1,0 +1,48 @@
+.container {
+  position: relative;
+  width: 400px;
+  display: block;
+  z-index: 999;
+  &_search {
+    display: flex;
+    border: 1px solid rgb(126, 124, 124);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 20px;
+      margin-right: 4px;
+    }
+    input {
+      outline: none;
+      border: none;
+      width: 100%;
+      font-size: inherit;
+      font-weight: bolder;
+    }
+  }
+  &_dropDownList {
+    position: absolute;
+    margin-top: 2px;
+    max-height: 300px;
+    border: 1px solid rgb(126, 124, 124);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+    width: 100%;
+    background-color: white;
+    cursor: pointer;
+    overflow: hidden;
+    overflow-y: auto;
+    div {
+      padding: 4px;
+      word-break: break-all;
+      &:hover {
+        background-color: rgb(126, 124, 124);
+        color: white;
+      }
+    }
+  }
+}
